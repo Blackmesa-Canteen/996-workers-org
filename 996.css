@@ -194,6 +194,8 @@ h2 {
     white-space: nowrap;
     margin: 0;
     animation: marquee 20s linear infinite;
+    padding: 10px;
+    line-height: 1.5;
 }
 @keyframes marquee {
     0% {
@@ -202,4 +204,14 @@ h2 {
     100% {
         transform: translateX(-100%);
     }
+}
+
+.travelling {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.travelling img {
+    max-width: 100%;
+    height: auto;
 }
