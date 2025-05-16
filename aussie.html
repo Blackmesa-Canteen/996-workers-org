@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Australian.ICU</title>
+    <style>
+        body {
+            font-family: "Comic Sans MS", "Courier New", cursive;
+            background-image: url('https://images.unsplash.com/photo-1523181887058-82fd90d1120c?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20px;
+            color: #006400; /* Dark green text for eye care */
+        }
+        h1 {
+            text-align: center;
+            color: #8B4513; /* SaddleBrown */
+            text-shadow: 2px 2px 4px #FFD700; /* Gold shadow */
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #8B4513; /* SaddleBrown */
+            border-bottom: 2px solid #FFD700; /* Gold border */
+            padding-bottom: 5px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #F5F5DC; /* Beige background */
+            padding: 20px;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+            border: 5px solid #CD853F; /* Peru border */
+            border-radius: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            max-width: 250px;
+            border: 5px solid #8B4513; /* SaddleBrown border */
+            border-radius: 10px;
+        }
+        .content {
+            margin-bottom: 20px;
+            background-color: #FAFAD2; /* LightGoldenrodYellow */
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px dashed #CD853F; /* Peru border */
+        }
+        .widget {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .widget-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .clock {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #FAEBD7; /* AntiqueWhite */
+            border: 10px solid #8B4513; /* SaddleBrown */
+            position: relative;
+            margin: 0 auto;
+        }
+        .clock-number {
+            position: absolute;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .clock-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            background-color: #000;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .hour-hand, .minute-hand, .second-hand {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+            background-color: #000;
+        }
+        .hour-hand {
+            width: 6px;
+            height: 60px;
+            transform: translateX(-50%);
+        }
+        .minute-hand {
+            width: 4px;
+            height: 80px;
+            transform: translateX(-50%);
+        }
+        .second-hand {
+            width: 2px;
+            height: 90px;
+            transform: translateX(-50%);
+            background-color: #FF0000; /* Red */
+        }
+        .calendar {
+            width: 280px; /* Increased width */
+            box-sizing: border-box;
+            background-color: #FAEBD7; /* AntiqueWhite */
+            border: 5px solid #8B4513; /* SaddleBrown */
+            border-radius: 10px;
+            padding: 10px;
+            margin: 0 auto;
+        }
+        .calendar-header {
+            background-color: #CD853F; /* Peru */
+            color: white;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px; /* Reduced gap */
+        }
+        .calendar-day {
+            text-align: center;
+            padding: 3px; /* Reduced padding */
+            background-color: #F5F5DC; /* Beige */
+            border: 1px solid #CD853F; /* Peru */
+            font-size: 14px; /* Reduced font size */
+        }
+        .calendar-day.today {
+            background-color: #FFD700; /* Gold */
+            font-weight: bold;
+        }
+        .calendar-day.header {
+            background-color: #8B4513; /* SaddleBrown */
+            color: white;
+            font-weight: bold;
+        }
+        .links table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #FAFAD2; /* LightGoldenrodYellow */
+            margin-top: 10px;
+        }
+        .links th {
+            background-color: #CD853F; /* Peru */
+            color: white;
+            padding: 10px;
+            text-align: left;
+            border: 2px solid #8B4513; /* SaddleBrown */
+        }
+        .links td {
+            padding: 10px;
+            border: 2px solid #CD853F; /* Peru */
+        }
+        .links a {
+            color: #006400; /* Dark green */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .links a:hover {
+            text-decoration: underline;
+            color: #8B4513; /* SaddleBrown */
+        }
+        .footer {
+            text-align: center;
+            color: #8B4513; /* SaddleBrown */
+            font-size: 14px;
+            margin-top: 20px;
+            background-color: #FAEBD7; /* AntiqueWhite */
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px dashed #CD853F; /* Peru border */
+        }
+        .blink {
+            animation: blink-animation 1s steps(5, start) infinite;
+        }
+        @keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+        }
+        .marquee {
+            background-color: #FAEBD7; /* AntiqueWhite */
+            padding: 10px;
+            overflow: hidden;
+            border: 2px solid #CD853F; /* Peru */
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .marquee p {
+            white-space: nowrap;
+            margin: 0;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to Australian.ICU</h1>
+    <div class="marquee">
+        <p>G'day, mates! Welcome to my personal website. Grab a cuppa and stay a while! Best viewed in Netscape Navigator 4.0 or Internet Explorer 5.0!</p>
+    </div>
+    <div class="header">
+        <img src="https://images.unsplash.com/photo-1526515579900-98518e7862cc?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Australian Kangaroo">
+    </div>
+    <div class="content">
+        <p>G'day, mates! I'm a software engineer from the land down under. </p>
+        <p>This here is my little corner of the internet, where I share my love for coding, Vegemite, and the occasional tall tale from my adventures in the outback.</p>
+        <p>I started my career back in 1975 with FORTRAN and COBOL, and I've been coding ever since! <span class="blink">NEW!</span> Check out my latest project: a Y2K compliant calculator!</p>
+    </div>
+    <div class="widget-container">
+        <div class="widget">
+            <div class="clock">
+                <div class="clock-center"></div>
+                <div class="hour-hand" id="hour-hand"></div>
+                <div class="minute-hand" id="minute-hand"></div>
+                <div class="second-hand" id="second-hand"></div>
+                <div id="clock-numbers"></div>
+            </div>
+        </div>
+        <div class="widget">
+            <div class="calendar">
+                <div class="calendar-header" id="calendar-month">Month Year</div>
+                <div class="calendar-days" id="calendar-days">
+                    <!-- Calendar days will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="links">
+        <h2>My Favorite Links</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td>Tourism Australia</td>
+                <td>The official Australian tourism website</td>
+                <td><a href="https://www.australia.com/" target="_blank">Visit Site</a></td>
+            </tr>
+            <tr>
+                <td>Kangaroo Facts</td>
+                <td>Learn about our bouncy national animal</td>
+                <td><a href="https://www.nationalgeographic.com/animals/mammals/facts/red-kangaroo" target="_blank">Visit Site</a></td>
+            </tr>
+            <tr>
+                <td>Australian Wildlife</td>
+                <td>Discover the unique wildlife of Australia</td>
+                <td><a href="https://www.australianwildlife.org/" target="_blank">Visit Site</a></td>
+            </tr>
+            <tr>
+                <td>Vegemite Recipes</td>
+                <td>Delicious ways to enjoy our national spread</td>
+                <td><a href="https://www.vegemite.com.au/" target="_blank">Visit Site</a></td>
+            </tr>
+        </table>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 australian.ICU</p>
+        <p>This site is best viewed in 800x600 resolution</p>
+        <p>Last updated: <span id="last-updated"></span></p>
+        <p>Visitor count: <span style="font-weight: bold;">1</span></p>
+    </div>
+</div>
+
+<script>
+    function updateClock() {
+        var now = new Date();
+        var hours = now.getHours() % 12;
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        var hourDeg = (hours + minutes/60) * 30;
+        var minuteDeg = (minutes + seconds/60) * 6;
+        var secondDeg = seconds * 6;
+
+        document.getElementById('hour-hand').style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
+        document.getElementById('minute-hand').style.transform = `translateX(-50%) rotate(${minuteDeg}deg)`;
+        document.getElementById('second-hand').style.transform = `translateX(-50%) rotate(${secondDeg}deg)`;
+    }
+
+    function updateCalendar() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth();
+        var today = now.getDate();
+
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        document.getElementById('calendar-month').textContent = monthNames[month] + " " + year;
+
+        var calendarDays = document.getElementById('calendar-days');
+        calendarDays.innerHTML = '';
+
+        // Add day headers
+        for (var i = 0; i < 7; i++) {
+            var dayHeader = document.createElement('div');
+            dayHeader.className = 'calendar-day header';
+            dayHeader.textContent = dayNames[i];
+            calendarDays.appendChild(dayHeader);
+        }
+
+        // Get first day of month and total days in month
+        var firstDay = new Date(year, month, 1).getDay();
+        var daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        // Add blank spaces for days before the first day of the month
+        for (var i = 0; i < firstDay; i++) {
+            var blankDay = document.createElement('div');
+            blankDay.className = 'calendar-day';
+            blankDay.textContent = '';
+            calendarDays.appendChild(blankDay);
+        }
+
+        // Add days of the month
+        for (var i = 1; i <= daysInMonth; i++) {
+            var dayElement = document.createElement('div');
+            dayElement.className = 'calendar-day';
+            if (i === today) {
+                dayElement.className += ' today';
+            }
+            dayElement.textContent = i;
+            calendarDays.appendChild(dayElement);
+        }
+    }
+
+    // Last updated date
+    function setLastUpdated() {
+        var lastUpdated = new Date('2023-09-01');
+        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('last-updated').textContent = lastUpdated.toLocaleDateString("en-US", options);
+    }
+
+    // Initialize everything when the page loads
+    window.onload = function() {
+        updateCalendar();
+        setLastUpdated();
+        updateClock();
+        setInterval(updateClock, 1000);
+    };
+</script>
+</body>
+</html>

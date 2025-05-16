@@ -3,215 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>996Workers.org - Services</title>
+    <title>996workers.org</title>
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-    <style>
-        body {
-            font-family: "Verdana", sans-serif;
-            background-color: #e0f7fa;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            background-color: #f4f1de;
-            border: 3px solid #b0bec5;
-            padding: 10px;
-            text-align: left;
-        }
-        h1 {
-            font-size: 28px;
-            color: #00838f;
-            margin-bottom: 20px;
-        }
-        table {
-            width: 100%;
-            border-spacing: 0;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-        }
-        th {
-            background-color: #d7ccc8;
-            color: #000;
-        }
-        td {
-            background-color: #ffffff;
-        }
-        a {
-            color: #00897b;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-            color: #004d40;
-        }
-        .sidebar {
-            background-color: #b0bec5;
-            padding: 10px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .footer {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #666;
-            background-color: #b0bec5;
-            padding: 10px;
-            border-top: 1px solid #ccc;
-        }
-        #clock-canvas {
-            background-color: #fff;
-            border: 2px solid #000;
-            border-radius: 50%;
-        }
-    </style>
+    <link rel="stylesheet" href="./996.css">
 </head>
 <body>
-    <div class="container">
-        <h1>996Workers.org - 996工人之家</h1>
-        <div class="sidebar">
-            <p><strong>Quick Links:</strong> <a href="https://www.travellings.cn/go.html">Travelling</a> | <a href="https://blog.996workers.org/about">About</a> | <a href="https://github.com/Blackmesa-Canteen">GitHub Profile</a></p>
-            <img src="US-NuclearRegulatoryCommission-Logo.png" alt="US NRC Logo" style="width: 20%; height: auto; margin-left: 10px;">
-            <canvas id="clock-canvas" width="100" height="100"></canvas>
+<div class="container">
+    <h1>Welcome to 996workers.org - 996工人之家</h1>
+    <div class="marquee">
+        <p>Welcome! Wominjeka! 欢迎! नमस्ते! ¡Hola! Bonjour! வணக்கம்! Привет! Ciao! Γεια σας! مرحبا! שָׁלוֹם! Olá! Hallo! こんにちは! 안녕하세요! Xin chào! สวัสดี! Hallå! Merhaba! Jambo! Hej! ສະບາຍດີ! નમસ્તે! Салам! Szia! Dzień dobry! Dobrý den! Здравейте! Tere! Labas! สวัสดี! Բարև! გამარჯობა! Сайн уу! Selamat pagi! Kamusta! Sawubona! Dumela! Lumela! မင်္ဂလာပါ! អរុណសួស្តី! ສະບາຍດີ! Talofa! Malo e lelei! Bula! Halo! Bongu! Moni! హలో! ನಮಸ್ಕಾರ! سلام! Demat! Servus! Bonghjornu!</p>
+    </div>
+    <div class="header">
+        <img src="https://images.unsplash.com/photo-1526515579900-98518e7862cc?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Australian Kangaroo">
+    </div>
+    <div class="content">
+        <p>G'day, mates! </p>
+        <p>This is my home page, where I share my love for coding, Vegemite, and the occasional tall tale from my adventures.</p>
+        <p>I started my career back in December 2023，and I've been coding ever since<span class="blink">.</span></p>
+        <p>用英语是因为懒得切换输入法。</p>
+    </div>
+    <div class="widget-container">
+        <div class="widget">
+            <div class="clock">
+                <div class="clock-center"></div>
+                <div class="hour-hand" id="hour-hand"></div>
+                <div class="minute-hand" id="minute-hand"></div>
+                <div class="second-hand" id="second-hand"></div>
+                <div id="clock-numbers"></div>
+            </div>
         </div>
+        <div class="widget">
+            <div class="calendar">
+                <div class="calendar-header" id="calendar-month">Month Year</div>
+                <div class="calendar-days" id="calendar-days"></div>
+            </div>
+        </div>
+    </div>
+    <div class="links">
+        <h2>Links</h2>
         <table>
-            <thead>
-                <tr>
-                    <th>Service</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a href="https://blog.996workers.org">996 Blog</a></td>
-                    <td>Dive into our articles and updates in the world of 996 work culture.</td>
-                </tr>
-                <tr>
-                    <td><a href="https://cloud.996workers.org">996 Cloud</a></td>
-                    <td>Cloud Service for 996 workers.</td>
-                </tr>
-                <tr>
-                    <td><a href="https://nps.996workers.org">996 VPN Proxy</a></td>
-                    <td>Helpful network tools.</td>
-                </tr>
-                <tr>
-                    <td><a href="https://book.996workers.org">996 Book Store</a></td>
-                    <td>Buy and read books related to 996 culture.</td>
-                </tr>
-                <tr>
-                    <td><a href="https://img.996workers.org">996 Image Service</a></td>
-                    <td>Image Services for your design needs.</td>
-                </tr>
-                <tr>
-                    <td><a href="https://pdf.996workers.org">996 PDF Helper</a></td>
-                    <td>Process PDF files online with ease.</td>
-                </tr>
-                <tr>
-                    <td><a href="https://img-helper.996workers.org">996 Image Helper</a></td>
-                    <td>Edit and manage images online seamlessly.</td>
-                </tr>
-                <tr>
-                    <td><a href="https://rss.996workers.org">996 RSS Hub</a></td>
-                    <td>Your source for RSS feeds on 996 topics.</td>
-                </tr>
-                <tr>
-                    <td><a href="https://notes.996workers.org">996 Notes</a></td>
-                    <td>Keep notes organized with our online notebook platform.</td>
-                </tr>
-                <tr>
-                    <td><a href="https://chat.996workers.org">996 AI Chat Platform</a></td>
-                    <td>Chat with our AI for insights and assistance.</td>
-                </tr>
-                <tr>
-                    <td><a href="https://tools.996workers.org">996 Tools</a></td>
-                    <td>Access a range of essential developer tools for 996 workers.</td>
-                </tr>
-            </tbody>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><a href="https://blog.996workers.org" target="_blank">996 Blog</a></td>
+                <td>Blog - 博客</td>
+            </tr>
+            <tr>
+                <td><a href="https://tools.996workers.org" target="_blank">996 Tools</a></td>
+                <td>Dev Tools - 工具</td>
+            </tr>
+            <tr>
+                <td><a href="https://rss.996workers.org" target="_blank">996 RSS Hub</a></td>
+                <td>Source for RSS feeds</td>
+            </tr>
+            <tr>
+                <td><a href="https://cloud.996workers.org" target="_blank">996 NextCloud</a></td>
+                <td>Cloud Storage for 996 workers</td>
+            </tr>
+            <tr>
+                <td><a href="https://img.996workers.org">996 Image Service</a></td>
+                <td>Image Services that will be helpful</td>
+            </tr>
+            <tr>
+                <td><a href="https://pdf.996workers.org">996 PDF Helper</a></td>
+                <td>Process your PDF files online with ease</td>
+            </tr>
+            <tr>
+                <td><a href="https://img-helper.996workers.org">996 Image Helper</a></td>
+                <td>Edit and manage images online seamlessly</td>
+            </tr>
+            <tr>
+                <td><a href="https://rss.996workers.org">996 RSS Hub</a></td>
+                <td>Manage sources for RSS feeds on 996 topics</td>
+            </tr>
+            <tr>
+                <td><a href="https://notes.996workers.org">996 Notes</a></td>
+                <td>Keep notes organized with our notebook platform</td>
+            </tr>
+            <tr>
+                <td><a href="https://chat.996workers.org">996 AI Chat Platform</a></td>
+                <td>Chat with our LLM AI Agent for insights and assistance</td>
+            </tr>
+
         </table>
     </div>
     <div class="footer">
+        <p>&copy; 2025 996workers.org. All Rights Reserved.</p>
         <p>Contact: 996 Worker | Email: admin@996workers.org</p>
-        <p>&copy; 1984 B.M.R.F. All Rights Reserved.</p>
+        <p>Last updated: <span id="last-updated"></span></p>
+        <p>Visitor count: <span style="font-weight: bold;">Not Implemented yet</span></p>
     </div>
+</div>
 
-    <script>
-        function drawClock() {
-            const canvas = document.getElementById('clock-canvas');
-            const ctx = canvas.getContext('2d');
-            const radius = canvas.height / 2;
-            ctx.translate(radius, radius);
+<script>
+    function updateClock() {
+        var now = new Date();
+        var hours = now.getHours() % 12;
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
 
-            function drawFace(ctx, radius) {
-                const grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
-                grad.addColorStop(0, '#333');
-                grad.addColorStop(0.5, 'white');
-                grad.addColorStop(1, '#333');
-                ctx.strokeStyle = grad;
-                ctx.lineWidth = radius * 0.1;
-                ctx.stroke();
+        var hourDeg = (hours + minutes/60) * 30;
+        var minuteDeg = (minutes + seconds/60) * 6;
+        var secondDeg = seconds * 6;
 
-                ctx.beginPath();
-                ctx.arc(0, 0, radius, 0, 2 * Math.PI);
-                ctx.fillStyle = 'white';
-                ctx.fill();
-                ctx.fillStyle = 'black';
-                ctx.textBaseline = 'middle';
-                ctx.textAlign = 'center';
-                ctx.font = `${radius * 0.15}px Arial`;
-                for (let num = 1; num <= 12; num++) {
-                    const ang = num * Math.PI / 6;
-                    ctx.rotate(ang);
-                    ctx.translate(0, -radius * 0.85);
-                    ctx.rotate(-ang);
-                    ctx.fillText(num.toString(), 0, 0);
-                    ctx.rotate(ang);
-                    ctx.translate(0, radius * 0.85);
-                    ctx.rotate(-ang);
-                }
-            }
+        document.getElementById('hour-hand').style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
+        document.getElementById('minute-hand').style.transform = `translateX(-50%) rotate(${minuteDeg}deg)`;
+        document.getElementById('second-hand').style.transform = `translateX(-50%) rotate(${secondDeg}deg)`;
+    }
 
-            function drawTime(ctx, radius) {
-                const now = new Date();
-                const hour = now.getHours() % 12;
-                const minute = now.getMinutes();
-                const second = now.getSeconds();
+    function updateCalendar() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth();
+        var today = now.getDate();
 
-                const hourAngle = (hour * Math.PI / 6) + (minute * Math.PI / (6 * 60)) + (second * Math.PI / (360 * 60));
-                const minuteAngle = (minute * Math.PI / 30) + (second * Math.PI / (30 * 60));
-                const secondAngle = (second * Math.PI / 30);
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-                drawHand(ctx, hourAngle, radius * 0.5, radius * 0.07);
-                drawHand(ctx, minuteAngle, radius * 0.8, radius * 0.07);
-                drawHand(ctx, secondAngle, radius * 0.9, radius * 0.02);
+        document.getElementById('calendar-month').textContent = monthNames[month] + " " + year;
 
-                function drawHand(ctx, pos, length, width) {
-                    ctx.beginPath();
-                    ctx.lineWidth = width;
-                    ctx.lineCap = 'round';
-                    ctx.moveTo(0, 0);
-                    ctx.rotate(pos);
-                    ctx.lineTo(0, -length);
-                    ctx.stroke();
-                    ctx.rotate(-pos);
-                }
-            }
-            
-            function updateClock() {
-                ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
-                drawFace(ctx, radius);
-                drawTime(ctx, radius);
-            }
-            setInterval(updateClock, 1000);
+        var calendarDays = document.getElementById('calendar-days');
+        calendarDays.innerHTML = '';
+
+        // Add day headers
+        for (var i = 0; i < 7; i++) {
+            var dayHeader = document.createElement('div');
+            dayHeader.className = 'calendar-day header';
+            dayHeader.textContent = dayNames[i];
+            calendarDays.appendChild(dayHeader);
         }
-        drawClock();
-    </script>
+
+        // Get first day of month and total days in month
+        var firstDay = new Date(year, month, 1).getDay();
+        var daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        // Add blank spaces for days before the first day of the month
+        for (var i = 0; i < firstDay; i++) {
+            var blankDay = document.createElement('div');
+            blankDay.className = 'calendar-day';
+            blankDay.textContent = '';
+            calendarDays.appendChild(blankDay);
+        }
+
+        // Add days of the month
+        for (var i = 1; i <= daysInMonth; i++) {
+            var dayElement = document.createElement('div');
+            dayElement.className = 'calendar-day';
+            if (i === today) {
+                dayElement.className += ' today';
+            }
+            dayElement.textContent = i;
+            calendarDays.appendChild(dayElement);
+        }
+    }
+
+    // Last updated date
+    function setLastUpdated() {
+        var lastUpdated = new Date('2023-09-01');
+        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('last-updated').textContent = lastUpdated.toLocaleDateString("en-US", options);
+    }
+
+    // Initialize everything when the page loads
+    window.onload = function() {
+        updateCalendar();
+        setLastUpdated();
+        updateClock();
+        setInterval(updateClock, 1000);
+    };
+</script>
 </body>
 </html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>996Workers.org - Services</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="stylesheet" href="./legacy.css">
+</head>
+<body>
+    <div class="container">
+        <h1>996Workers.org - 996工人之家</h1>
+        <div class="sidebar">
+            <p><strong>Quick Links:</strong> <a href="https://www.travellings.cn/go.html">Travelling</a> | <a href="https://blog.996workers.org/about">About</a> | <a href="https://github.com/Blackmesa-Canteen">GitHub Profile</a></p>
+            <img src="US-NuclearRegulatoryCommission-Logo.png" alt="US NRC Logo" style="width: 20%; height: auto; margin-left: 10px;">
+            <canvas id="clock-canvas" width="100" height="100"></canvas>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="https://blog.996workers.org">996 Blog</a></td>
+                    <td>Dive into our articles and updates in the world of 996 work culture.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://cloud.996workers.org">996 Cloud</a></td>
+                    <td>Cloud Service for 996 workers.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://nps.996workers.org">996 VPN Proxy</a></td>
+                    <td>Helpful network tools.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://book.996workers.org">996 Book Store</a></td>
+                    <td>Buy and read books related to 996 culture.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://img.996workers.org">996 Image Service</a></td>
+                    <td>Image Services for your design needs.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://pdf.996workers.org">996 PDF Helper</a></td>
+                    <td>Process PDF files online with ease.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://img-helper.996workers.org">996 Image Helper</a></td>
+                    <td>Edit and manage images online seamlessly.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://rss.996workers.org">996 RSS Hub</a></td>
+                    <td>Your source for RSS feeds on 996 topics.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://notes.996workers.org">996 Notes</a></td>
+                    <td>Keep notes organized with our online notebook platform.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://chat.996workers.org">996 AI Chat Platform</a></td>
+                    <td>Chat with our AI for insights and assistance.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://tools.996workers.org">996 Tools</a></td>
+                    <td>Access a range of essential developer tools for 996 workers.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="footer">
+        <p>Contact: 996 Worker | Email: admin@996workers.org</p>
+        <p>&copy; 1984 B.M.R.F. All Rights Reserved.</p>
+    </div>
+
+    <script>
+        function drawClock() {
+            const canvas = document.getElementById('clock-canvas');
+            const ctx = canvas.getContext('2d');
+            const radius = canvas.height / 2;
+            ctx.translate(radius, radius);
+
+            function drawFace(ctx, radius) {
+                const grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
+                grad.addColorStop(0, '#333');
+                grad.addColorStop(0.5, 'white');
+                grad.addColorStop(1, '#333');
+                ctx.strokeStyle = grad;
+                ctx.lineWidth = radius * 0.1;
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+                ctx.fillStyle = 'white';
+                ctx.fill();
+                ctx.fillStyle = 'black';
+                ctx.textBaseline = 'middle';
+                ctx.textAlign = 'center';
+                ctx.font = `${radius * 0.15}px Arial`;
+                for (let num = 1; num <= 12; num++) {
+                    const ang = num * Math.PI / 6;
+                    ctx.rotate(ang);
+                    ctx.translate(0, -radius * 0.85);
+                    ctx.rotate(-ang);
+                    ctx.fillText(num.toString(), 0, 0);
+                    ctx.rotate(ang);
+                    ctx.translate(0, radius * 0.85);
+                    ctx.rotate(-ang);
+                }
+            }
+
+            function drawTime(ctx, radius) {
+                const now = new Date();
+                const hour = now.getHours() % 12;
+                const minute = now.getMinutes();
+                const second = now.getSeconds();
+
+                const hourAngle = (hour * Math.PI / 6) + (minute * Math.PI / (6 * 60)) + (second * Math.PI / (360 * 60));
+                const minuteAngle = (minute * Math.PI / 30) + (second * Math.PI / (30 * 60));
+                const secondAngle = (second * Math.PI / 30);
+
+                drawHand(ctx, hourAngle, radius * 0.5, radius * 0.07);
+                drawHand(ctx, minuteAngle, radius * 0.8, radius * 0.07);
+                drawHand(ctx, secondAngle, radius * 0.9, radius * 0.02);
+
+                function drawHand(ctx, pos, length, width) {
+                    ctx.beginPath();
+                    ctx.lineWidth = width;
+                    ctx.lineCap = 'round';
+                    ctx.moveTo(0, 0);
+                    ctx.rotate(pos);
+                    ctx.lineTo(0, -length);
+                    ctx.stroke();
+                    ctx.rotate(-pos);
+                }
+            }
+            
+            function updateClock() {
+                ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
+                drawFace(ctx, radius);
+                drawTime(ctx, radius);
+            }
+            setInterval(updateClock, 1000);
+        }
+        drawClock();
+    </script>
+</body>
+</html>
