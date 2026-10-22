@@ -32,7 +32,7 @@
   }
 }
 
-/* Page container: 1200px including side padding. */
+/* Page container: one centred column, same as the blog's article width (800px incl. 1rem padding). */
 @utility wrap {
-  @apply mx-auto w-full max-w-300 px-4 md:px-10;
+  @apply mx-auto w-full max-w-200 px-4;
 }
