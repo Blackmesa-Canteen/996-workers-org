@@ -56,7 +56,7 @@
     {
       "@type": "WebApplication",
       "name": "Speech Pathology Session Notes",
-      "alternateName": "言语治疗记录生成器",
+      "alternateName": "言语治疗课程记录",
       "url": "https://sp-notes-pdf.996workers.org",
       "description": "A free session-note PDF generator for speech pathologists.",
       "applicationCategory": "BusinessApplication",
@@ -79,20 +79,22 @@
 </header>
 
 <main id="main" class="flex flex-1 flex-col">
-  <div class="relative overflow-hidden border-b border-neutral-300">
-    <div class="wrap py-12 lg:py-16 lg:pr-[44%]">
-      <h1 class="text-[2.5rem]/12 text-primary lg:text-5xl/14">996 Workers</h1>
-      <p class="mt-1 text-[1.75rem]/9 font-bold text-primary lg:text-[2rem]/10" lang="zh-Hans">996工人之家</p>
-      <p class="mt-6 max-w-160 text-xl/8">G'day, mates! This is my home page, where I share my love for coding, Vegemite, and the occasional tall tale from my adventures.</p>
-      <p class="mt-3 max-w-160 text-xl/8" lang="zh-Hans">G'day，朋友们！这是我的个人主页，分享我对编程和 Vegemite 的热爱，偶尔也讲讲冒险路上的趣事。</p>
+  <div class="border-b border-neutral-300">
+    <div class="wrap grid items-center gap-12 py-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:py-16">
+      <div>
+        <h1 class="text-[2.5rem]/12 text-primary lg:text-5xl/14">996 Workers</h1>
+        <p class="mt-1 text-[1.75rem]/9 font-bold text-primary lg:text-[2rem]/10" lang="zh-Hans">996工人之家</p>
+        <p class="mt-6 max-w-160 text-xl/8">G'day, mates! This is my home page, where I share my love for coding, Vegemite, and the occasional tall tale from my adventures.</p>
+        <p class="mt-3 max-w-160 text-xl/8" lang="zh-Hans">嗨，欢迎来玩！这是我的个人主页：写写代码，吃吃 Vegemite，偶尔也讲讲出门在外遇到的趣事。</p>
+      </div>
+      <!-- The photo only shows on wide screens; the source element stops phones from downloading it. -->
+      <picture class="hidden lg:block">
+        <source media="(min-width: 64rem)" srcset="./img/machined.jpeg">
+        <img class="aspect-4/3 w-full rounded-sm object-cover object-[50%_62%]"
+             src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="1200" height="1600"
+             alt="A small steel chess king standing on the carriage of a metal lathe.">
+      </picture>
     </div>
-    <!-- The photo only shows on wide screens; the source element stops phones from downloading it. -->
-    <picture>
-      <source media="(min-width: 64rem)" srcset="./img/machined.jpeg">
-      <img class="absolute inset-y-0 right-0 hidden h-full w-[40%] object-cover object-[50%_62%] lg:block"
-           src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="1200" height="1600"
-           alt="A small steel chess king standing on the carriage of a metal lathe.">
-    </picture>
   </div>
 
   <section class="bg-tint py-12" aria-labelledby="projects-title">
@@ -102,18 +104,18 @@
         <li class="group relative rounded-sm border border-neutral-300 bg-white p-6 hover:border-primary">
           <h3 class="text-xl/7"><a class="text-text no-underline after:absolute after:inset-0 group-hover:underline" href="https://blog.996workers.org">996 Blog <span class="block text-lg/7" lang="zh-Hans">996 博客</span></a></h3>
           <p class="mt-3 text-text-muted">Notes on coding, work and life.</p>
-          <p class="mt-1 text-text-muted" lang="zh-Hans">关于编程、工作和生活的文章。</p>
+          <p class="mt-1 text-text-muted" lang="zh-Hans">写代码、上班和日常生活的一些记录。</p>
         </li>
         <li class="group relative rounded-sm border border-neutral-300 bg-white p-6 hover:border-primary">
-          <h3 class="text-xl/7"><a class="text-text no-underline after:absolute after:inset-0 group-hover:underline" href="https://sp-notes-pdf.996workers.org">Speech Pathology Session Notes <span class="block text-lg/7" lang="zh-Hans">言语治疗记录生成器</span></a></h3>
+          <h3 class="text-xl/7"><a class="text-text no-underline after:absolute after:inset-0 group-hover:underline" href="https://sp-notes-pdf.996workers.org">Speech Pathology Session Notes <span class="block text-lg/7" lang="zh-Hans">言语治疗课程记录</span></a></h3>
           <p class="mt-3 text-text-muted">A free session-note PDF generator for all speech pathologists. Feedback and feature requests are welcome by email.</p>
-          <p class="mt-1 text-text-muted" lang="zh-Hans">免费的言语治疗课程记录 PDF 生成器，所有言语治疗师都可以使用。欢迎通过邮件提出反馈和新需求。</p>
+          <p class="mt-1 text-text-muted" lang="zh-Hans">给言语治疗师用的课程记录 PDF 生成工具，免费。有问题或者想加功能，直接发邮件给我就行。</p>
         </li>
         <li class="rounded-sm border border-neutral-300 bg-white p-6">
           <h3 class="text-xl/7 text-text-muted">996 AI Chat <span class="block text-lg/7" lang="zh-Hans">996 AI 聊天</span></h3>
           <p class="mt-3"><span class="inline-block rounded-sm bg-neutral-100 px-2 py-0.5 text-sm font-bold text-text-muted">Offline · <span lang="zh-Hans">已下线</span></span></p>
           <p class="mt-3 text-text-muted">Built for my wife, its only user. Offline for now because of the budget. I love her.</p>
-          <p class="mt-1 text-text-muted" lang="zh-Hans">只给我老婆一个人用的 AI 聊天。因为预算问题暂时下线。我爱她。</p>
+          <p class="mt-1 text-text-muted" lang="zh-Hans">专门给我老婆做的 AI 聊天，用户就她一个。最近没预算，先关了。我爱她。</p>
         </li>
       </ul>
     </div>
@@ -129,9 +131,9 @@
           <p>My code is on <a href="https://github.com/Blackmesa-Canteen">GitHub</a>.</p>
         </div>
         <div class="grid content-start gap-4" lang="zh-Hans">
-          <p>我从 2023 年 12 月开始工作，从那以后一直在写代码。</p>
-          <p>网站名字来自“996”工作制：早九点到晚九点，一周六天。这是个玩笑，不是推荐。</p>
-          <p>我的代码在 <a href="https://github.com/Blackmesa-Canteen">GitHub</a> 上。</p>
+          <p>2023 年 12 月入行，从此一直在写代码。</p>
+          <p>站名取自“996”：早九晚九，一周六天。纯属玩笑，别当真。</p>
+          <p>代码都放在 <a href="https://github.com/Blackmesa-Canteen">GitHub</a> 上。</p>
         </div>
       </div>
     </div>
@@ -141,14 +143,14 @@
 <footer class="bg-primary-dark text-white [&_a]:text-white">
   <div class="wrap py-10">
     <p class="max-w-200">I acknowledge the Traditional Owners of the lands on which I live and work, and pay my respects to their Elders past and present.</p>
-    <p class="mt-1 max-w-200" lang="zh-Hans">我向我生活和工作所在土地的传统所有者致敬，并向他们过去和现在的长者致以敬意。</p>
+    <p class="mt-1 max-w-200" lang="zh-Hans">谨向我生活和工作所在土地的传统主人致敬，并向他们过去和现在的长老致意。</p>
     <p class="mt-6 text-sm">Contact <span lang="zh-Hans">联系</span>: <a href="mailto:admin@996workers.org">admin@996workers.org</a></p>
-    <p class="mt-2 text-sm">This site is hosted on Cloudflare. <span lang="zh-Hans">本站托管于 Cloudflare。</span></p>
+    <p class="mt-2 text-sm">This site is hosted on Cloudflare. <span lang="zh-Hans">本站由 Cloudflare 托管。</span></p>
   </div>
   <div class="border-t border-white/25">
     <div class="wrap flex flex-wrap items-center justify-between gap-4 py-6 text-sm">
       <div>
-        <p>© 2025 996workers.org. All rights reserved. <span lang="zh-Hans">保留所有权利。</span></p>
+        <p>© 2025 996workers.org. All rights reserved. <span lang="zh-Hans">版权所有。</span></p>
         <p class="mt-1">Last updated <span lang="zh-Hans">最后更新</span>: <time datetime="1989-06-04">June 4, 1989</time></p>
       </div>
       <a class="inline-block" href="https://www.travellings.cn/go.html" aria-label="Travellings webring: visit a random member site">
