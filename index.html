@@ -1,158 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>996workers.org</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-    <link rel="stylesheet" href="./996.css">
-</head>
-<body>
-<div class="container">
-    <h1>Welcome to 996workers.org - 996工人之家</h1>
-    <div class="marquee">
-        <p>Welcome! Wominjeka! 欢迎! नमस्ते! ¡Hola! Bonjour! வணக்கம்! Привет! Ciao! Γεια σας! مرحبا! שָׁלוֹם! Olá! Hallo! こんにちは! 안녕하세요! Xin chào! สวัสดี! Hallå! Merhaba! Jambo! Hej! ສະບາຍດີ! નમસ્તે! Салам! Szia! Dzień dobry! Dobrý den! Здравейте! Tere! Labas! สวัสดี! Բարև! გამარჯობა! Сайн уу! Selamat pagi! Kamusta! Sawubona! Dumela! Lumela! မင်္ဂလာပါ! អរុណសួស្តី! ສະບາຍດີ! Talofa! Malo e lelei! Bula! Halo! Bongu! Moni! హలో! ನಮಸ್ಕಾರ! سلام! Demat! Servus! Bonghjornu!</p>
-    </div>
-    <div class="header">
-        <img src="./img/machined.jpeg" alt="Australian Kangaroo">
-    </div>
-    <div class="content">
-        <p>G'day, mates!</p>
-        <p>This is my home page, where I share my love for coding, Vegemite, and the occasional tall tale from my adventures.</p>
-        <p>I started my career back in December 2023，and I've been coding ever since<span class="blink">.</span></p>
-    </div>
-    <div class="widget-container">
-        <div class="widget">
-            <div class="clock">
-                <div class="clock-center"></div>
-                <div class="hour-hand" id="hour-hand"></div>
-                <div class="minute-hand" id="minute-hand"></div>
-                <div class="second-hand" id="second-hand"></div>
-                <div id="clock-numbers"></div>
-            </div>
-        </div>
-        <div class="widget">
-            <div class="calendar">
-                <div class="calendar-header" id="calendar-month">Month Year</div>
-                <div class="calendar-days" id="calendar-days"></div>
-            </div>
-        </div>
-    </div>
-    <div class="links">
-        <h2>Links</h2>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td><a href="https://blog.996workers.org" target="_blank">996 Blog</a></td>
-                <td>Blog</td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://sp-notes-pdf.996workers.org" target="_blank">Speech Pathology Session Notes</a>
-                    <td>A free session note PDF generator can be used by all speech pathologists. If you have any feedbacks or new requirements please feel free to email me.</td>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="#">996 AI Chat</a></td>
-                <td>Used by my wife only, now, down due to the budget. I love her.</td>
-            </tr>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>996 Workers · 996工人之家 – Blog, tools and side projects</title>
+<meta name="description" content="996 Workers (996工人之家): a developer's home page with a blog, a free session-notes PDF generator for speech pathologists, and side projects.">
+<link rel="canonical" href="https://www.996workers.org/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#8b4513">
 
-        </table>
-    </div>
-    <div class="footer">
-        <p>&copy; 2025 996workers.org. All Rights Reserved.</p>
-        <p>Contact: 996 Worker | Email: admin@996workers.org</p>
-        <p>Last updated: <span id="last-updated"></span></p>
-        <p>Visitor count: <span style="font-weight: bold;">Not Implemented yet</span></p>
-        <div class="travelling">
-            <a href="https://www.travellings.cn/go.html">
-                <img src="./img/logo.gif" alt="Travelling" style="cursor: pointer;">
-            </a>
-        </div>
-    </div>
-</div>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="996 Workers · 996工人之家">
+<meta property="og:locale" content="en_AU">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:url" content="https://www.996workers.org/">
+<meta property="og:title" content="996 Workers · 996工人之家">
+<meta property="og:description" content="A developer's home page: blog, a free session-notes PDF generator for speech pathologists, and side projects. 博客、工具和个人项目。">
+<meta property="og:image" content="https://www.996workers.org/img/machined.jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1600">
+<meta property="og:image:alt" content="A small steel chess king standing on the carriage of a metal lathe.">
+<meta name="twitter:card" content="summary_large_image">
 
-<script>
-    function updateClock() {
-        var now = new Date();
-        var hours = now.getHours() % 12;
-        var minutes = now.getMinutes();
-        var seconds = now.getSeconds();
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
 
-        var hourDeg = (hours + minutes/60) * 30;
-        var minuteDeg = (minutes + seconds/60) * 6;
-        var secondDeg = seconds * 6;
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&display=swap">
+<link rel="stylesheet" href="./assets/css/site.css">
 
-        document.getElementById('hour-hand').style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
-        document.getElementById('minute-hand').style.transform = `translateX(-50%) rotate(${minuteDeg}deg)`;
-        document.getElementById('second-hand').style.transform = `translateX(-50%) rotate(${secondDeg}deg)`;
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.996workers.org/#website",
+      "url": "https://www.996workers.org/",
+      "name": "996 Workers",
+      "alternateName": ["996工人之家", "996workers.org"],
+      "inLanguage": ["en", "zh-Hans"],
+      "publisher": { "@id": "https://www.996workers.org/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.996workers.org/#person",
+      "name": "996 Worker",
+      "url": "https://www.996workers.org/",
+      "email": "mailto:admin@996workers.org",
+      "sameAs": ["https://github.com/Blackmesa-Canteen", "https://blog.996workers.org"]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Speech Pathology Session Notes",
+      "alternateName": "言语治疗课程记录",
+      "url": "https://sp-notes-pdf.996workers.org",
+      "description": "A free session-note PDF generator for speech pathologists.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any (web browser)",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "AUD" },
+      "author": { "@id": "https://www.996workers.org/#person" }
     }
-
-    function updateCalendar() {
-        var now = new Date();
-        var year = now.getFullYear();
-        var month = now.getMonth();
-        var today = now.getDate();
-
-        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        var dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-        document.getElementById('calendar-month').textContent = monthNames[month] + " " + year;
-
-        var calendarDays = document.getElementById('calendar-days');
-        calendarDays.innerHTML = '';
-
-        // Add day headers
-        for (var i = 0; i < 7; i++) {
-            var dayHeader = document.createElement('div');
-            dayHeader.className = 'calendar-day header';
-            dayHeader.textContent = dayNames[i];
-            calendarDays.appendChild(dayHeader);
-        }
-
-        // Get first day of month and total days in month
-        var firstDay = new Date(year, month, 1).getDay();
-        var daysInMonth = new Date(year, month + 1, 0).getDate();
-
-        // Add blank spaces for days before the first day of the month
-        for (var i = 0; i < firstDay; i++) {
-            var blankDay = document.createElement('div');
-            blankDay.className = 'calendar-day';
-            blankDay.textContent = '';
-            calendarDays.appendChild(blankDay);
-        }
-
-        // Add days of the month
-        for (var i = 1; i <= daysInMonth; i++) {
-            var dayElement = document.createElement('div');
-            dayElement.className = 'calendar-day';
-            if (i === today) {
-                dayElement.className += ' today';
-            }
-            dayElement.textContent = i;
-            calendarDays.appendChild(dayElement);
-        }
-    }
-
-    // Last updated date
-    function setLastUpdated() {
-        var lastUpdated = new Date('1989-06-04');
-        var options = { year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('last-updated').textContent = lastUpdated.toLocaleDateString("en-US", options);
-    }
-
-    // Initialize everything when the page loads
-    window.onload = function() {
-        updateCalendar();
-        setLastUpdated();
-        updateClock();
-        setInterval(updateClock, 1000);
-    };
+  ]
+}
 </script>
+</head>
+<body class="flex min-h-dvh flex-col">
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-4 focus:z-10 focus:p-2 font-bold" href="#main">Skip to main content</a>
+
+<header class="bg-primary text-white">
+  <div class="wrap flex min-h-15 items-center">
+    <a class="py-2 text-lg font-bold text-white no-underline" href="/">996 Workers <span class="ml-2" lang="zh-Hans">996工人之家</span></a>
+  </div>
+</header>
+
+<main id="main" class="wrap flex-1 py-12 lg:py-16">
+  <div class="max-w-2xl">
+    <h1 class="text-[2rem]/10 text-primary">996 Workers</h1>
+    <p class="mt-1 text-xl/8 font-bold text-primary" lang="zh-Hans">996工人之家</p>
+    <p class="mt-6 text-lg/8">G'day, mates! This is my home page, where I share my love for coding, Vegemite, and the occasional tall tale from my adventures.</p>
+    <p class="mt-2 text-lg/8" lang="zh-Hans">这是我的个人主页。我平时写代码，爱吃 Vegemite，偶尔也记一些在外面遇到的事。</p>
+
+    <section class="mt-14" aria-labelledby="projects-title">
+      <h2 id="projects-title" class="text-lg font-bold">Projects <span class="ml-1" lang="zh-Hans">项目</span></h2>
+      <ul class="mt-4 divide-y divide-neutral-300 border-y border-neutral-300">
+        <li class="py-5">
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h3 class="font-bold"><a href="https://blog.996workers.org">996 Blog</a> <span class="ml-1 font-normal text-text-muted" lang="zh-Hans">996 博客</span></h3>
+            <span class="text-sm text-text-muted">blog.996workers.org</span>
+          </div>
+          <p class="mt-2 text-text-muted">Tech notes and exam study guides, plus the odd post about something else.</p>
+          <p class="mt-1 text-text-muted" lang="zh-Hans">技术笔记、考试复习资料，偶尔也写点别的。</p>
+        </li>
+        <li class="py-5">
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h3 class="font-bold"><a href="https://sp-notes-pdf.996workers.org">Speech Pathology Session Notes</a> <span class="ml-1 font-normal text-text-muted" lang="zh-Hans">言语治疗课程记录</span></h3>
+            <span class="text-sm text-text-muted">sp-notes-pdf.996workers.org</span>
+          </div>
+          <p class="mt-2 text-text-muted">A free session-note PDF generator for all speech pathologists. Feedback and feature requests are welcome by email.</p>
+          <p class="mt-1 text-text-muted" lang="zh-Hans">给言语治疗师用的课程记录 PDF 生成器，免费使用。有问题或者需要新功能，可以发邮件给我。</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="mt-14" aria-labelledby="about-title">
+      <h2 id="about-title" class="text-lg font-bold">About <span class="ml-1" lang="zh-Hans">关于</span></h2>
+      <div class="mt-4 grid gap-4">
+        <div>
+          <p>The site is named after the “996” working schedule: 9am to 9pm, six days a week. It is a joke, not a recommendation.</p>
+          <p class="mt-1" lang="zh-Hans">站名来自“996”工作制：早上九点到晚上九点，一周六天。（本站不提倡这种作息。）</p>
+        </div>
+        <div>
+          <p>My code is on <a href="https://github.com/Blackmesa-Canteen">GitHub</a>.</p>
+          <p class="mt-1" lang="zh-Hans">我的代码放在 <a href="https://github.com/Blackmesa-Canteen">GitHub</a> 上。</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="bg-primary-dark text-white [&_a]:text-white">
+  <div class="wrap py-10">
+    <p class="max-w-200">I acknowledge the Traditional Owners of the lands on which I live and work, and pay my respects to their Elders past and present.</p>
+    <p class="mt-1 max-w-200" lang="zh-Hans">我向我生活和工作所在土地的传统主人致敬，也向他们过去和现在的长者致敬。</p>
+    <p class="mt-6 text-sm">Contact <span lang="zh-Hans">联系</span>: <a href="mailto:admin@996workers.org">admin@996workers.org</a></p>
+    <p class="mt-2 text-sm">This site is hosted on Cloudflare. <span lang="zh-Hans">本站由 Cloudflare 托管。</span></p>
+  </div>
+  <div class="border-t border-white/25">
+    <div class="wrap flex flex-wrap items-center justify-between gap-4 py-6 text-sm">
+      <div>
+        <p>© 1989 996workers.org. All rights reserved. <span lang="zh-Hans">版权所有。</span></p>
+        <p class="mt-1">Last updated <span lang="zh-Hans">最后更新</span>: <time datetime="1989-06-04">June 4, 1989</time></p>
+        <p class="mt-3 text-xs text-white/70" lang="zh-Hans">ICP备案：不适用　公网安备：不适用</p>
+      </div>
+      <a class="inline-block" href="https://www.travellings.cn/go.html" aria-label="Travellings webring: visit a random member site">
+        <img class="w-30" src="./img/logo.gif" alt="" width="120" height="40" loading="lazy" decoding="async">
+      </a>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
